@@ -1,0 +1,270 @@
+/* Общие стили */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading--h1 {
+  font-size: 3rem;
+}
+
+.button {
+  margin-left: auto;
+  font-size: 1.5em;
+  display: block;
+  background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+  color: #fff;
+  padding: 0.3em 0.6em;
+  border-radius: 1em;
+  font-weight: 800;
+  transition: all 0.5s;
+  cursor: pointer;
+  border: none;
+}
+
+.button:hover {
+  transform: translate(-5px, -2px);
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.22);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.22);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.22);
+}
+
+/* Товары */
+
+.products {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  max-width: 1440px;
+  padding: 2rem;
+  margin: auto;
+}
+
+.product {
+  max-width: 350px;
+  width: 100%;
+  overflow: hidden;
+  font-size: 1rem;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.22);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.22);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.22);
+}
+
+.product__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.product__img {
+  width: 100%;
+}
+
+.product__info {
+  padding: 1em 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  max-height: 300px;
+}
+
+.info__list {
+  margin: 0.5em 0;
+}
+.list__item {
+  margin-bottom: 0.2em;
+}
+
+.list__item.title {
+  margin-bottom: 0.5em;
+}
+
+.loading {
+  font-size: 3rem;
+}
+
+/* Модальное окно */
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1rem;
+  z-index: 1000;
+  display: none;
+}
+
+.modal__wrapper {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  padding: 2rem;
+  position: relative;
+  background: #fff;
+  transform: rotateX(-90deg);
+  transition: transform 0.3s;
+  border-radius: 1em;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.button__wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.modal__wrapper.load::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1002;
+}
+.modal__wrapper.load::after {
+  content: '';
+  height: 0;
+  width: 0;
+  padding: 15px;
+  border: 6px solid #ccc;
+  border-right-color: #888;
+  border-radius: 22px;
+  -webkit-animation: rotate 1s infinite linear;
+  position: absolute;
+  left: 44%;
+  top: 46%;
+  z-index: 1003;
+}
+
+.modal__close {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+.modal__close::after,
+.modal__close::before {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 2px;
+  background-color: black;
+  top: 50%;
+  left: 0;
+}
+
+.modal__close::after {
+  transform: rotate(-45deg) translateY(-50%);
+}
+
+.modal__close::before {
+  transform: rotate(45deg) translateY(-50%);
+}
+
+.modal__content {
+  font-size: 1rem;
+}
+
+.modal__content.hide {
+  display: none;
+}
+
+.modal__heading {
+  font-size: 2em;
+  margin: 0 auto 0.5em;
+  text-align: center;
+}
+
+.modal__button {
+  font-size: 0.9em;
+}
+
+/* Форма */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.5em;
+  position: relative;
+  z-index: 1001;
+}
+
+@-webkit-keyframes rotate {
+  /* 100% keyframe for  clockwise. 
+     use 0% instead for anticlockwise */
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.form > * {
+  margin: 10px 0;
+}
+
+.form input {
+  font-size: 0.7em;
+  padding: 0.3em 0.5em;
+  border-radius: 1em;
+}
+
+.warning {
+  font-size: 15px;
+  color: red;
+  display: none;
+}
+
+.warning.show {
+  display: flex;
+}
+
+.finish {
+  min-height: 450px;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.finish.show {
+  display: flex;
+}

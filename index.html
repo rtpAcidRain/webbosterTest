@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Shop</title>
+</head>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(91053427, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/91053427" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<body>
+
+  <!-- Модалка -->
+  <div class="modal" id="order">
+    <div class="modal__wrapper">
+     <div class="button__wrapper">
+      <a href="/" class="modal__close"></a>
+     </div>
+     <div class="modal__content">
+       <h3 class="modal__heading heading--h3">Форма заказа</h3>
+      <form action="php/mail.php" id="orderForm" class="form" method="post">
+        <p>Товар: <span class="product__name" id="productName"></span></p>
+        <label>
+          <span class="warning">Введите имя</span>
+          <input id="userName"  name="name" type="text" placeholder="Имя*">
+        </label>
+        <label >
+          <span class="warning">Введите телефон</span>
+          <input id="userPhone" name="phone"  type="tel" placeholder="Телефон*">
+        </label>
+        <span class="warning">Ошибка отправки</span>
+        <button onclick="ym(91053427, 'reachGoal', 'order'); return true;" type="submit" class="button modal__button">Заказать: <span class="total" id="total"></span>р.</button>
+      </form>
+     </div>
+     <div class="finish">
+      <h2>Спасибо!</h2>
+     </div>
+    </div>
+  </div>
+
+  <!-- Страница -->
+  <div class="page">
+    <main class="main">
+      <div class="container">
+        <h1 class="heading heading--h1">Товары</h1>
+        <div class="products" id="products">
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
