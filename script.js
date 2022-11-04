@@ -150,6 +150,7 @@ orderForm.addEventListener('submit', async (e) => {
     // Имитация успешной отправки письма
     modalContent.classList.add('hide');
     finishFrom.classList.add('show');
+    ym(91053427, 'reachGoal', 'order');
     return true;
   }
 });
